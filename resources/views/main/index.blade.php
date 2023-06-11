@@ -36,7 +36,7 @@
 
         <!-- Login with Twitch Button -->
         <div class="flex justify-center mt-10">
-            <a href=""
+            <a href="{{ route('twitch.redirect') }}"
                 class="px-6 py-3 text-lg font-bold text-white bg-purple-600 rounded hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
                 <i class="fab fa-twitch mr-2"></i>
                 Inicia sesión con Twitch

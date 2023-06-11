@@ -15,4 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('main.index');
-});
+})->name('home');
+
+
+//Twitch login
+Route::get('auth/twitch', 'App\Http\Controllers\Auth\LoginController@redirectToProvider')->name('twitch.redirect');
+Route::get('auth/twitch/callback', 'App\Http\Controllers\Auth\LoginController@handleProviderCallback')->name('twitch.callback');
