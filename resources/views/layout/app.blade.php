@@ -13,6 +13,7 @@
         <x-navbar></x-navbar>
     @endauth
     <div class="@auth container @endauth mx-auto">
+        <x-messages></x-messages>
         @yield('content')
     </div>
 </body>

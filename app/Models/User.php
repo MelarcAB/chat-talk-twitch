@@ -19,6 +19,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
+        'twitch_id',
+        'img',
         'email',
         'password',
     ];
@@ -42,4 +45,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+
+
+    //obtener el UserConfiguration
+    public function userConfiguration()
+    {
+        return $this->hasOne(UserConfiguration::class);
+    }
 }

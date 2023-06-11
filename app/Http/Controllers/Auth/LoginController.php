@@ -8,11 +8,11 @@ use Socialite;
 use Illuminate\Support\Facades\Auth;
 //twitchapi
 use App\Models\TwitchApi;
+//user
+use App\Models\User;
 
 class LoginController extends Controller
 {
-
-
 
     public function redirectToProvider(TwitchApi $twitchApi)
     {
@@ -22,15 +22,28 @@ class LoginController extends Controller
     public function handleProviderCallback(Request $request, TwitchApi $twitchApi)
     {
         $accessToken = $twitchApi->getAccessToken($request->code);
-        print_r($accessToken);
-        exit;
-        $user = $twitchApi->getUser($accessToken);
-
-        // la lógica para crear tu usuario va aquí
-        // por ejemplo, podrías verificar si el usuario ya existe en la base de datos
-        // si no existe, puedes crear una nueva cuenta de usuario con la información obtenida de Twitch
-
+        $twitchUser = $twitchApi->getUser($accessToken);
+        // Encuentra o crea un usuario en la base de datos
+        $user = User::firstOrCreate(
+            ['twitch_id' => $twitchUser->id],
+            [
+                'username' => $twitchUser->login,
+                'name' => $twitchUser->display_name,
+                'img' => $twitchUser->profile_image_url,
+            ]
+        );
+        //Validate if user configuration register exist
+        if (!$user->userConfiguration) {
+            $user->userConfiguration()->create();
+        }
+        // Login and remember the user
         Auth::login($user, true);
-        return redirect(route('home'));
+        return redirect('/home');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('index');
     }
 }

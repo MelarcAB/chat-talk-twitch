@@ -14,11 +14,19 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            //username
+            $table->string('username')->unique();
+            $table->string('email')->unique()->nullable();
+            //twitch
+            $table->string('twitch_id')->nullable();
             $table->rememberToken();
+            //img
+            $table->string('img')->nullable();
             $table->timestamps();
+            //enabled default 1
+            $table->boolean('enabled')->default(1);
+            //enable soft deletes
+            $table->softDeletes();
         });
     }
 

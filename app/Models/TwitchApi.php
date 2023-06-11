@@ -42,7 +42,7 @@ class TwitchApi
                     'client_secret' => env('TWITCH_CLIENT_SECRET'),
                     'code' => $code,
                     'grant_type' => 'authorization_code',
-                    'redirect_uri' => env('TWITCH_REDIRECT_URI'),
+                    'redirect_uri' => 'http://localhost:8000/auth/twitch/callback',
                 ],
             ]);
 
@@ -62,13 +62,12 @@ class TwitchApi
     {
         if (!$accessToken) {
             Log::error('Error obteniendo el usuario Twitch, token de acceso no proporcionado');
-
             return null;
         }
 
         try {
             $client = new Client([
-                'base_uri' => 'https://api.twitch.tv/',
+                'base_uri' => 'https://api.twitch.tv/token',
                 'headers' => [
                     'Client-ID' => env('TWITCH_CLIENT_ID'),
                     'Authorization' => 'Bearer ' . $accessToken,

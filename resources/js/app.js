@@ -1,4 +1,12 @@
+import Alpine from 'alpinejs'
+
+window.Alpine = Alpine
+
+Alpine.start()
+
+
 import './bootstrap';
+//alpine
 import '../css/app.css'
 
 import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
