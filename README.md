@@ -1,4 +1,4 @@
-# ChatTalk - La Plataforma de Twitch Interaction
+# ChatTalk 
 
 ChatTalk es una aplicación web que une a los streamers y espectadores de Twitch de formas nuevas e interactivas. Permite a los streamers seleccionar a un espectador en el chat para interactuar directamente, con el chat del espectador convertido en audio en tiempo real.
 
