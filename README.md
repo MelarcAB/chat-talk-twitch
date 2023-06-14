@@ -1,66 +1,33 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ChatTalk - La Plataforma de Twitch Interaction
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+ChatTalk es una aplicación web que une a los streamers y espectadores de Twitch de formas nuevas e interactivas. Permite a los streamers seleccionar a un espectador en el chat para interactuar directamente, con el chat del espectador convertido en audio en tiempo real.
 
-## About Laravel
+Esta aplicación se construye con Laravel, utiliza jQuery y Alpine.js para el comportamiento dinámico del lado del cliente, Tailwind CSS para el estilo, y Font Awesome para los íconos.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Características principales
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Autenticación de Twitch**: Los usuarios se registran y acceden con sus cuentas de Twitch.
+- **Conversión de texto a voz**: Los mensajes de chat se convierten en audio en tiempo real.
+- **Interactividad del usuario**: Los streamers pueden seleccionar a un usuario para interactuar directamente en el chat.
+- **Interfaz de usuario personalizable**: Los usuarios pueden personalizar su avatar y voz.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Configuración y Despliegue
 
-## Learning Laravel
+1. Clonar el repositorio
+2. Entrar en la carpeta del proyecto: `cd chat-talk-twitch`
+3. Instalar las dependencias de composer: `composer install`
+4. Copiar el archivo `.env.example` a `.env`: `cp .env.example .env` 
+5. Configurar las variables de entorno en el archivo `.env`, como la base de datos, las credenciales de la API de Twitch, etc.
+6. Generar una clave de aplicación: `php artisan key:generate`
+7. Migrar la base de datos: `php artisan migrate`
+8. Correr la aplicación: `php artisan serve`
+9. Npm run build
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Herramientas Utilizadas
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- [Laravel 10](https://laravel.com)
+- [Alpine.js](https://github.com/alpinejs/alpine)
+- [jQuery](https://jquery.com)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Font Awesome](https://fontawesome.com)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
